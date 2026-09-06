@@ -10,6 +10,9 @@ const ArcGauge: React.FC<{ score: number; size?: number }> = ({ score, size = 24
   const circumference = Math.PI * radius; // half-circle
   const strokeWidth = 12;
   const center = size / 2;
+  const startX = center - radius;
+  const endX = center + radius;
+  const normalizedScore = Math.max(0, Math.min(100, score));
 
   // Animate score from 0 on mount
   useEffect(() => {
@@ -21,12 +24,12 @@ const ArcGauge: React.FC<{ score: number; size?: number }> = ({ score, size = 24
       const progress = Math.min(elapsed / duration, 1);
       // Ease-out cubic
       const eased = 1 - Math.pow(1 - progress, 3);
-      setAnimatedScore(Math.round(score * eased));
+      setAnimatedScore(Math.round(normalizedScore * eased));
       if (progress < 1) frame = requestAnimationFrame(animate);
     };
     frame = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(frame);
-  }, [score]);
+  }, [normalizedScore]);
 
   const fillLength = (animatedScore / 100) * circumference;
   const dashArray = `${fillLength} ${circumference - fillLength}`;
@@ -44,7 +47,7 @@ const ArcGauge: React.FC<{ score: number; size?: number }> = ({ score, size = 24
       <svg width={size} height={size / 2 + 30} viewBox={`0 0 ${size} ${size / 2 + 30}`}>
         {/* Background arc */}
         <path
-          d={`M ${strokeWidth} ${center} A ${radius} ${radius} 0 0 1 ${size - strokeWidth} ${center}`}
+          d={`M ${startX} ${center} A ${radius} ${radius} 0 0 1 ${endX} ${center}`}
           fill="none"
           stroke="#1E3A5F"
           strokeWidth={strokeWidth}
@@ -52,7 +55,7 @@ const ArcGauge: React.FC<{ score: number; size?: number }> = ({ score, size = 24
         />
         {/* Filled arc */}
         <path
-          d={`M ${strokeWidth} ${center} A ${radius} ${radius} 0 0 1 ${size - strokeWidth} ${center}`}
+          d={`M ${startX} ${center} A ${radius} ${radius} 0 0 1 ${endX} ${center}`}
           fill="none"
           stroke={severityColor}
           strokeWidth={strokeWidth}
