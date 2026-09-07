@@ -1,0 +1,21 @@
+{
+  "name": "prag_drishti",
+  "version": "1.0.0",
+  "description": "**Smart India Hackathon 2026 — Problem Statement SIH26184**\r **Team: The Cyber Arc**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dev-anshu-11/prag_drishti.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dev-anshu-11/prag_drishti/issues"
+  },
+  "homepage": "https://github.com/dev-anshu-11/prag_drishti#readme"
+}

@@ -4,7 +4,7 @@
 **Smart India Hackathon 2026 — Problem Statement SIH26184**
 **Team: The Cyber Arc**
 
-> *प्राग् (Forward) + दृष्टि (Vision) = See tomorrow's fraud, today.*
+
 
 ---
 
