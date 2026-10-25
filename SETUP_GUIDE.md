@@ -211,4 +211,4 @@ VIGILANT-forked/
 3. **Start Backend** - Follow backend setup steps
 4. **Optional: ML Service** - Install Python dependencies if needed
 
-**Happy coding! 🚀**
+
